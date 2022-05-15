@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EasyAppointment.Services
 {
-    public interface IProizvodiService
+    public interface IService<T> where T : class
     {
-        IEnumerable<Proizvodi> Get();
-        Proizvodi GetById(int id);
+        IEnumerable<T> Get();
+        T GetById(int id );
     }
 }

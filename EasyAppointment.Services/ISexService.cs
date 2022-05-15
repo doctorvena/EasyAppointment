@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EasyAppointment.Services
 {
-    public interface IAppUserService : IService<AppUser>
+    public interface ISexService : IService<Sex>
     {
 
     }

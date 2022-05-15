@@ -13,6 +13,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddTransient<IProizvodiService, ProizvodiService>();
 builder.Services.AddTransient<IAppUserService, AppUserService>();
+builder.Services.AddTransient<ISexService, SexService>();
+
+builder.Services.AddAutoMapper(typeof(SexService));
 
 var connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<_170148Context>(options => options.UseSqlServer(connectionstring));

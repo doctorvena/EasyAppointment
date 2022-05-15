@@ -1,5 +1,5 @@
-﻿using EasyAppointment.Services;
-using EasyAppointment.Services.Database;
+﻿using EasyAppointment.Model;
+using EasyAppointment.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EasyAppointment.Controllers
@@ -8,22 +8,15 @@ namespace EasyAppointment.Controllers
     [Route("[controller]")] 
     public class AppUserController : ControllerBase
     {
-        private readonly IAppUserService _AppUserService;
-        public AppUserController(IAppUserService proizvodiService)
+        private readonly IAppUserService _appUserService;
+        public AppUserController(IAppUserService appUserService)
         {
-            _AppUserService = proizvodiService;
+            _appUserService = appUserService;
         }
         [HttpGet]
-        public IEnumerable<AppUser> Get(string? naziv, string? sifra)
+        public IEnumerable<AppUser> Get()
         {
-            return _AppUserService.GetAll();
+            return _appUserService.Get();
         }
-        [HttpGet("{id}")]
-        public AppUser GetById(int id)
-        {
-            //return _AppUserService.GetById(id);
-            return null;
-        }
-
     }
 }

@@ -8,24 +8,24 @@ using System.Threading.Tasks;
 
 namespace EasyAppointment.Services
 {
-    public class AppUserService : IAppUserService
+    public class SexService : ISexService
     {
         public _170148Context Context { get; set; }
         public IMapper Mapper { get; set; }
-        public AppUserService(_170148Context context, IMapper mapper)
+        public SexService(_170148Context context, IMapper mapper)
         {
             Context = context;
             Mapper = mapper;
         }
-        public IEnumerable<Model.AppUser> Get()
+        public IEnumerable<Model.Sex> Get()
         {
-            var entity = Context.Set<Database.AppUser>().ToList();
+            var entity = Context.Set<Database.Sex>().ToList();
 
             //NOTE: elaborate IEnumerable vs IList
-            return Mapper.Map<IList<Model.AppUser>>(entity);
+            return Mapper.Map<IList<Model.Sex>>(entity);
         }
 
-        public Model.AppUser GetById(int id)
+        public Model.Sex GetById(int id)
         {
             throw new NotImplementedException();
         }
